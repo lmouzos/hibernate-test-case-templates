@@ -15,6 +15,10 @@
  */
 package org.hibernate.bugs;
 
+import model.Post;
+import model.Author;
+import model.Comment;
+import model.BaseObj;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AvailableSettings;
@@ -37,8 +41,10 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
 	@Override
 	protected Class[] getAnnotatedClasses() {
 		return new Class[] {
-//				Foo.class,
-//				Bar.class
+				BaseObj.class,
+				Post.class,
+				Author.class,
+				Comment.class
 		};
 	}
 
@@ -68,7 +74,7 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
 
 	// Add your tests, using standard JUnit.
 	@Test
-	public void hhh123Test() throws Exception {
+	public void hhh16166Test() throws Exception {
 		// BaseCoreFunctionalTestCase automatically creates the SessionFactory and provides the Session.
 		Session s = openSession();
 		Transaction tx = s.beginTransaction();
